@@ -7,9 +7,37 @@ this is my webpage for front end development
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <h1>Main Heading</h1>
-    <h2>Subheading</h2>
+    <script>
+        const gallery = document.getElementById('gallery');
+        const images = gallery.getElementsByTagName('img');
+
+        // Toggle selection on image click
+        for (let img of images) {
+            img.addEventListener('click', function() {
+                img.classList.toggle('selected');
+            });
+        }
+
+        function selectAll() {
+            for (let img of images) {
+                img.classList.add('selected');
+            }
+        }
+
+        function deselectAll() {
+            for (let img of images) {
+                img.classList.remove('selected');
+            }
+        }
+
+        function alertSelected() {
+            let count = 0;
+            for (let img of images) {
+                if (img.classList.contains('selected')) count++;
+            }
+            alert('Selected images: ' + count);
+        }
+    </script>
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -102,6 +130,10 @@ this is my webpage for front end development
             }
         }
     </style>
+<body>
+    <h1>Main Heading</h1>
+    <h2>Subheading</h2>
+    
     <div class="button-group">
         <button onclick="selectAll()">Select All</button>
         <button onclick="deselectAll()">Deselect All</button>
@@ -113,36 +145,6 @@ this is my webpage for front end development
         <img src="photo2.jpg" alt="Close-up of a flower">
         <img src="photo3.jpg" alt="City skyline at sunset">
     </div>
-    <script>
-        const gallery = document.getElementById('gallery');
-        const images = gallery.getElementsByTagName('img');
-
-        // Toggle selection on image click
-        for (let img of images) {
-            img.addEventListener('click', function() {
-                img.classList.toggle('selected');
-            });
-        }
-
-        function selectAll() {
-            for (let img of images) {
-                img.classList.add('selected');
-            }
-        }
-
-        function deselectAll() {
-            for (let img of images) {
-                img.classList.remove('selected');
-            }
-        }
-
-        function alertSelected() {
-            let count = 0;
-            for (let img of images) {
-                if (img.classList.contains('selected')) count++;
-            }
-            alert('Selected images: ' + count);
-        }
-    </script>
+    
 </body>
 </html>
