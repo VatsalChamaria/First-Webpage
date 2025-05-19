@@ -1,5 +1,3 @@
-# First-Webpage
-this is my webpage for front end development
 <!DOCTYPE html>
 <html lang="en">
 <head>
